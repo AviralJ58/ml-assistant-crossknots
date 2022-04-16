@@ -7,22 +7,33 @@ ML Chef allows you to train a machine learning model and deploy it without writi
 ## Tech Stack Used
 
 -HTML
+
 -CSS
+
 -Javascript
+
 -Python
+
 -Pandas
+
 -Scikit learn
+
 -Flask
 
 ## Team Description
 
 Name: Aviral Jain
+
 Github: https://github.com/AviralJ58
 
+
 Name: Arhit Bose Tagore
+
 Github: https://github.com/CaptAlpha
 
+
 Name: Ritodeep Das
+
 Github: https://github.com/Ritodeep7
 
 ## Screenshots and reference Images
