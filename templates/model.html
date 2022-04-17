@@ -11,20 +11,20 @@
     <link href='https://fonts.googleapis.com/css?family=DM Sans' rel='stylesheet'>
     <link rel="stylesheet" href="..\static\css\style.css">
     <link rel="icon" href="..\static\icon.ico">
-    <title>Automatic ML Renderer</title> 
+    <title>ML Assistant</title> 
 </head>
 <body>
     <br>
     <div class="header">
     <img src="..\static\icon.png"  class='icon'>
-    <h1 class='heading'>ML Renderer</h1>
+    <h1 class='heading'>Assistant</h1>
     <br>
     </div>
     <hr class='divider'>
     <br>
     <div class="desc">
         <p>
-            <h2>The TIME has come for the you to bring Machine Learning to LIFE.</h2>
+            <h2>One stop solution from training to integration.</h2>
         <h3>You can now just add your dataset and get pre-trained model with the code.</h3>
         Even if you don't know to write a single line of code, you can get machine learning code rendered following just a few steps.
         <br>
@@ -69,7 +69,7 @@
                     2  
                 </div>
                 
-                <select name="target" id="target" method="post"  action="/model">
+                <select name="target" id="target" method="post"  action="/model" required>
                     <option value="" disabled selected hidden>Choose Target Value</option>
                     {% for tar in targets %}
                             <option value="{{ tar }}">{{ tar }}</option>
@@ -82,7 +82,7 @@
                     3
                 </div>
                
-                <select name="type" id="type">
+                <select name="type" id="type" required>
                     <option value="" disabled selected hidden>Choose Algorithm Type</option>
                     <option value="regression">Regression</option>
                     <option value="classification">Classification</option>
@@ -91,17 +91,23 @@
         </div>
         <div class="main">
             <div class="inputs">
-                <input type="submit" value="Submit" class="submit">
+                <input type="submit" value="Submit" id="submit" class="submit">
             </div>
         </div>
     </form>        
         
-    <div class="container">
+    <div class="container" id="pred">
         {{ prediction_text }}
-        {{pred}}
         <br>
-        <a href="/return-files/" download><button class='down'>Download</button></a>
+        <a href="/return-code/" download><button class='down'>Download Code</button></a>
+        <a href="/return-api/" download><button class='down'>Download API</button></a>
+        <br>
+        <p>Note: Please keep the downloaded code, API and dataset in the same folder.</p>
+        <a href="/documentation/"><button class='documentation'>Documentation</button></a>          
     </div>
 
+    <footer class="footer">
+        <p>Made with &#10084; by <a href="https://vinnovateit.com/" id="footerlink">VinnovateIT</a></p>
+    </footer>
 </body>
 </html>

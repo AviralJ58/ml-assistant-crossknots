@@ -25,10 +25,10 @@ from sklearn.metrics import accuracy_score
                                                         
 """""  
 
-app = Flask(__name__)
+application = Flask(__name__)
 filepath=""
 orig_name=""
-@app.route('/', methods=['GET', 'POST'])
+@application.route('/', methods=['GET', 'POST'])
 def index():
 
     global orig_name
@@ -71,7 +71,7 @@ fp = os.path.join("static","data.csv")
 """""                                                  
 
 
-@app.route('/model/', methods=['GET', 'POST'])
+@application.route('/model/', methods=['GET', 'POST'])
 def model():
     if os.path.isfile("static/data.csv"):
         df = pd.read_csv(fp)
@@ -276,7 +276,7 @@ joblib.dump(regressor, 'model.pkl')"""
             
             if Keymax=="LogisticRegression()":
                 modelstr="""#Training the model
-from sklearn.linear_model import LinearRegression
+from sklearn.linear_model import LogisticRegression
 classifier = LogisticRegression()
 classifier.fit(x_train,y_train)    
 from sklearn.metrics import accuracy_score
@@ -319,34 +319,34 @@ joblib.dump(classifier, 'model.pkl')"""
          
     return render_template('model.html', prediction_text='Trained {} model with {}% accuracy'.format(Keymax, accuracy), targets=targets)
     
-@app.route('/error/')
+@application.route('/error/')
 def error_page():
     return render_template("error.html")
 
-@app.route('/return-code/')
+@application.route('/return-code/')
 def return_code():
 	try:
 		return send_file('static/output.py', as_attachment=True, attachment_filename='output.py')
 	except Exception as e:
 		return str(e)
 
-@app.route('/return-api/')
+@application.route('/return-api/')
 def return_api():
 	try:
 		return send_file('static/api.py', as_attachment=True, attachment_filename='api.py')
 	except Exception as e:
 		return str(e)
 
-@app.route('/return-csv/')
+@application.route('/return-csv/')
 def return_csv_json():
     try:
 	    return send_file('static/sample/data.csv', as_attachment=True, attachment_filename='data.csv')
     except Exception as e:
 	    return str(e)
 
-@app.route('/documentation/')
+@application.route('/documentation/')
 def documentation():
     return render_template('documentation.html')
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    application.run(debug=True)

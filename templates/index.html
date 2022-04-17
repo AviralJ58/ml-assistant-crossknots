@@ -11,14 +11,17 @@
     <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="..\static\css\style.css">
     <link rel="icon" href="..\static\icon.ico">       
-    <title>Automatic ML Renderer</title> 
+    <title>ML Assistant</title> 
+
+
 </head>
 
 <body>
     <br>
     <div class="header">
     <img src="..\static\icon.png"  class='icon'>
-    <h1 class='heading'>ML Renderer</h1>
+    <h1 class='heading'>Assistant</h1>
+
     <br>
     </div>
     
@@ -26,7 +29,7 @@
     <br>
     <div class="desc">
         <p>
-            <h2>The TIME has come for you to bring Machine Learning to LIFE.</h2>
+            <h2>One stop solution from training to integration.</h2>
         <h3>You can now just add your dataset and get pre-trained model with the code.</h3>
         Even if you don't know to write a single line of code, you can get machine learning code rendered following just a few steps.
         <br>
@@ -45,12 +48,28 @@
                     <div class="number">
                         1
                     </div>
-                    <input type="file" name="csvfile" class="input">
+                    <input type="file" name="csvfile" class="input" required="required">
             </div>
             <div class="inputs">
                 <input type="submit" value="Submit" class="submit">
             </div>
         </div>
      </form>
+    
+     <!--Make a try now button which loads a csv-->
+     <div class="container">
+        <h3>Try now, Download CSV and train your first model now!</h3>
+        <a href="/return-csv/" download><button class='sample'>Download Sample CSV</button></a>
+        <a href="/documentation/"><button class='documentation'>Documentation</button></a>        
+        <br>
+        <p>Note: Create a new folder and save the dataset in the same.</p>
+    </div>
+    
+    <footer class="footer" id="index_footer">
+        <p>Made with &#10084; by <a href="https://vinnovateit.com/" id="footerlink">VinnovateIT</a></p>
+    </footer>
+
+    
+    
 </body>
 </html>
