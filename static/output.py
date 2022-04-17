@@ -14,8 +14,8 @@ from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 import joblib
 
-filepath='diabetes.csv'
-tar= 'Outcome'
+filepath='heart.csv'
+tar= 'target'
 df=pd.read_csv(filepath)
 feature_df = df.drop(tar, axis=1, inplace=False)
 for col in feature_df:
