@@ -38,11 +38,14 @@ Github: https://github.com/Ritodeep7
 
 ## Screenshots and reference Images
 
-``It includes some screenshots and images of your project.``
+![Landing Pages](static\code-snapshot.png)
+![Landing Pages](static\sce.png)
+![Landing Pages](static\snt.png)
+
 
 ## Links and References: 
 
-- [Devfolio](your_devfolio_link_here)
+- [Devfolio](https://devfolio.co/projects/ml-chef-f229)
 
 - [GitHub](https://github.com/AviralJ58/ml-chef-crossknots)
 
