@@ -14,8 +14,8 @@ from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 import joblib
 
-filepath='heart.csv'
-tar= 'target'
+filepath='data.csv'
+tar= 'price'
 df=pd.read_csv(filepath)
 feature_df = df.drop(tar, axis=1, inplace=False)
 for col in feature_df:
@@ -63,11 +63,11 @@ x_test[:,:]=sc.fit_transform(x_test[:,:])
 joblib.dump(sc,"scaler.pkl")
 
 #Training the model
-from sklearn.ensemble import RandomForestClassifier
-classifier = RandomForestClassifier()
-classifier.fit(x_train,y_train)    
-from sklearn.metrics import accuracy_score
-y_pred=classifier.predict(x_test)
-accuracy=accuracy_score(y_test, y_pred)
+from sklearn.tree import DecisionTreeRegressor
+regressor = DecisionTreeRegressor()
+regressor.fit(x_train,y_train)    
+from sklearn.metrics import r2_score
+y_pred=regressor.predict(x_test)
+accuracy=r2_score(y_test, y_pred)
 print("Accuracy:",accuracy*100,"%")
-joblib.dump(classifier, 'model.pkl')
+joblib.dump(regressor, 'model.pkl')

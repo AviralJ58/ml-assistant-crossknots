@@ -14,16 +14,7 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import r2_score
-from sklearn.metrics import accuracy_score
-
-"""""
-  _   _                        ____             _       
- | | | | ___  _ __ ___   ___  |  _ \ ___  _   _| |_ ___ 
- | |_| |/ _ \| '_ ` _ \ / _ \ | |_) / _ \| | | | __/ _ \
- |  _  | (_) | | | | | |  __/ |  _ < (_) | |_| | ||  __/
- |_| |_|\___/|_| |_| |_|\___| |_| \_\___/ \__,_|\__\___|
-                                                        
-"""""  
+from sklearn.metrics import accuracy_score 
 
 application = Flask(__name__)
 filepath=""
@@ -60,16 +51,7 @@ def index():
 
     return render_template('index.html', filepath=filepath, df = df)
 
-fp = os.path.join("static","data.csv")
-
-"""""
-  __  __           _      _   ____             _       
- |  \/  | ___   __| | ___| | |  _ \ ___  _   _| |_ ___ 
- | |\/| |/ _ \ / _` |/ _ \ | | |_) / _ \| | | | __/ _ \
- | |  | | (_) | (_| |  __/ | |  _ < (_) | |_| | ||  __/
- |_|  |_|\___/ \__,_|\___|_| |_| \_\___/ \__,_|\__\___|
-"""""                                                  
-
+fp = os.path.join("static","data.csv")                                                 
 
 @application.route('/model/', methods=['GET', 'POST'])
 def model():
@@ -81,7 +63,6 @@ def model():
     accuracy=0
     final=''
     Keymax=''
-    
     
     if request.method == 'POST':
         print(fp)
@@ -113,18 +94,6 @@ def model():
         sc=StandardScaler()
         x_train[:,:]=sc.fit_transform(x_train[:,:])
         x_test[:,:]=sc.fit_transform(x_test[:,:])
-    
-    
-  
-#       /\      /\                        |‾|             |‾|     
-#      /  \    /  \                       | |             | |     
-#     / /\ \  / /\ \      /‾‾‾‾‾\    /‾‾‾‾‾ |   /‾‾‾‾‾ \  | |     
-#    / /  \ \/ /  \ \    | |‾‾‾| |  | |‾‾‾| |  | |‾‾‾| |  | |     
-#   / /    \__/    \ \   | |   | |  | |   | |  | |‾‾‾     | |
-#  / /              \ \  | |___| |  | |___| |  | |___|‾|  | |
-# / /                \ \  \_____/    \_____/   \______/   |_|
-
-
 
         req = """Flask==1.1.2\ngunicorn==19.9.0\nrequests==2.24.0\nnumpy\npandas\nscikit-learn"""
         final=f"""import os
